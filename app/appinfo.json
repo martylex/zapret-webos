@@ -1,0 +1,14 @@
+{
+  "id": "org.flowseal.webos",
+  "version": "0.2.1",
+  "vendor": "Local webOS adaptation",
+  "type": "web",
+  "main": "index.html",
+  "title": "Flowseal Zapret",
+  "appDescription": "Flowseal 1.10.4 DPI bypass controls for rooted LG webOS TVs",
+  "icon": "icon.png",
+  "largeIcon": "icon.png",
+  "iconColor": "#111c2a",
+  "resolution": "1920x1080",
+  "disableBackHistoryAPI": true
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file:; script-src 'self' file:; style-src 'self' file:; object-src 'none'; connect-src 'none'">
+  <title>Flowseal Zapret</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><img src="icon.png" alt=""><div><h1>Flowseal Zapret</h1><p>DPI bypass for LG webOS</p></div></div>
+    <div class="package">FLOWSEAL PACKAGE <strong>1.10.4</strong></div>
+  </header>
+  <main>
+    <section class="connection panel" aria-labelledby="connection-title">
+      <div class="eyebrow" id="connection-title">CONNECTION</div>
+      <div class="status-line"><span id="status-dot" class="dot"></span><h2 id="status">Connecting…</h2></div>
+      <p id="status-description">Checking Homebrew root service</p>
+      <div class="actions">
+        <button id="start" class="primary" aria-keyshortcuts="3" disabled><kbd>3</kbd> Start</button>
+        <button id="stop" aria-keyshortcuts="4" disabled><kbd>4</kbd> Stop</button>
+        <button id="restart" aria-keyshortcuts="5" disabled><kbd>5</kbd> Restart</button>
+      </div>
+      <div id="message" role="status" aria-live="polite">Please wait.</div>
+      <div class="autostart-row"><div><h3>Autostart</h3><p>Start the service when the TV boots</p></div><button id="autostart" class="toggle" role="switch" aria-checked="false" disabled><span id="autostart-label">Off</span><i></i></button></div>
+    </section>
+    <section class="strategies panel" aria-labelledby="strategy-title">
+      <div class="eyebrow" id="strategy-title">STRATEGY</div>
+      <h2>Choose your strategy</h2>
+      <p id="current-strategy">Changes apply immediately while running.</p>
+      <button class="strategy" id="alt3" aria-keyshortcuts="1" aria-pressed="false" disabled><kbd>1</kbd><span class="radio"></span><span><strong>FAKE TLS AUTO ALT3</strong><small>Timestamps · recommended</small></span><span class="badge">DEFAULT</span></button>
+      <button class="strategy" id="alt2" aria-keyshortcuts="2" aria-pressed="false" disabled><kbd>2</kbd><span class="radio"></span><span><strong>FAKE TLS AUTO ALT2</strong><small>Bad sequence · alternative</small></span></button>
+      <button id="all-strategies" aria-keyshortcuts="7" disabled><kbd>7</kbd> All 22 strategies</button>
+      <p class="strategy-note">Includes GENERAL, ALT–ALT13, FAKE TLS AUTO, SIMPLE FAKE and EXP.</p>
+    </section>
+  </main>
+  <section class="diagnostics panel" aria-labelledby="diagnostics-title">
+    <div class="diagnostic-header"><div><div class="eyebrow" id="diagnostics-title">DIAGNOSTICS</div><p id="platform">Waiting for device information</p></div><div class="diagnostic-actions"><button id="refresh" aria-keyshortcuts="0"><kbd>0</kbd> Refresh</button><button id="log-toggle" aria-keyshortcuts="6"><kbd>6</kbd> Show details</button></div></div>
+    <div class="metrics"><div><span>Engine</span><strong>Linux TUN / raw IPv4</strong></div><div><span>TLS connections adapted</span><strong id="tls-count">—</strong></div><div><span>UDP packets adapted</span><strong id="udp-count">—</strong></div><div><span>Fake packets sent</span><strong id="fake-count">—</strong></div></div>
+    <div id="details" hidden><p id="limits"></p><pre id="log">No service log yet.</pre></div>
+  </section>
+  <footer><span>1 ALT3 · 2 ALT2 · 3 Start · 4 Stop · 5 Restart · 6 Details · 7 All strategies · 0 Refresh</span><span>IPv4 · HTTP/3 playback unverified</span><span>Back to close</span></footer>
+  <section id="strategy-picker" class="picker" role="dialog" aria-modal="true" aria-labelledby="picker-title" hidden>
+    <div class="picker-header"><div><h2 id="picker-title">All Flowseal strategies</h2><p>Point and click, or enter a two-digit number (01–22). Arrows and OK also work.</p><p id="picker-input" role="status">Select a strategy</p></div><button id="picker-close">Back</button></div>
+    <div id="strategy-options" class="strategy-options"></div>
+    <p class="picker-note">Native IPv4 adaptations of the supplied batch files. A strategy can pass packet tests and still fail on your ISP. Game filters remain disabled.</p>
+  </section>
+  <script src="strategies.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
